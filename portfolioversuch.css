@@ -1,0 +1,85 @@
+body {
+
+    background-image: url(portfoliobilder/bg.png);
+    margin: 0;
+    height: 100%;
+    padding: 0;
+}
+
+main {
+    margin: auto;
+    margin-top: 600px;
+    width: 800px;
+}
+
+header {
+    color: rgb(243, 106, 106);
+    font-family: fantasy;
+    font-size: 50pt;
+    text-align: center;
+    background-color: rgb(97, 15, 15);
+    margin: auto;
+    margin-top: 100px;
+    top: -100px;
+    height: 400px;
+    width: 800px;
+    border-radius: 0 0 400px 400px;
+    position: relative;
+}
+
+.text {
+    color: rgb(204, 61, 61);
+    font-family: cursive;
+    font-size: 20pt;
+    margin-left: 250px;
+    text-align: center;
+    margin-top: -75px;
+}
+
+ul {
+    position: sticky;
+    list-style-type: none;
+    margin: auto;
+    margin-right: 550px;
+    width: 120px;
+    margin-top: -500px;
+    top: 0px;
+    padding: 8px;
+    overflow: hidden;
+    background-color: black;
+    border-radius: 0% 0% 15px 15px;
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 10pt;
+}
+
+li {
+    float: left;
+    border-right: 2px solid white;
+}
+
+li:last-child {
+    border-right: none;
+}
+
+li a {
+    display: block;
+    color: rgb(32, 213, 245);
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: left;
+    text-decoration: none;
+    padding: 8px;
+}
+
+.aktiv {
+    color: red;
+}
+
+li a:hover:not(.aktiv) {
+    color: rgb(20, 148, 170);
+}
+
+h2 {
+    color: red;
+    font-family: Arial, Helvetica, sans-serif;
+}
