@@ -1,0 +1,199 @@
+*, *::after, *::before {
+    box-sizing: border-box;
+  }
+    
+    :root {
+      --cell-size: 100px;
+      --mark-size: calc(var(--cell-size) * .7);
+    }
+    
+    body {
+      margin: 0;
+      background-image: radial-gradient(rgb(135, 125, 224), rgb(18, 9, 104));
+    }
+    
+    .board {
+      margin-top: -10%;
+      width: 100vw;
+      height: 100vh;
+      display: grid;
+      justify-content: center;
+      align-content: center;
+      justify-items: center;
+      align-items: center;
+      grid-template-columns: repeat(3, auto)
+    }
+    
+    .tttfeld {
+      width: var(--cell-size);
+      height: var(--cell-size);
+      border: 5px solid rgb(255, 245, 245);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      position: relative;
+      cursor: pointer;
+    }
+    
+    .tttfeld:first-child,
+    .tttfeld:nth-child(2),
+    .tttfeld:nth-child(3) {
+      border-top: none;
+    }
+    
+    .tttfeld:nth-child(3n + 1) {
+      border-left: none;
+    }
+    
+    .tttfeld:nth-child(3n + 3) {
+      border-right: none;
+    }
+    
+    .tttfeld:last-child,
+    .tttfeld:nth-child(8),
+    .tttfeld:nth-child(7) {
+      border-bottom: none;
+    }
+    
+    .tttfeld.x,
+    .tttfeld.circle {
+      cursor: not-allowed;
+    }
+    
+    .tttfeld.x::before,
+    .tttfeld.x::after,
+    .tttfeld.circle::before {
+      background-color: rgb(149, 208, 235);
+    }
+    
+    
+    
+    .tttfeld.x::before,
+    .tttfeld.x::after,
+    .tttfeld.x .tttfeld:not(.x):not(.circle):before,
+    .board.x .tttfeld:not(.x):not(.circle):after {
+      content: '';
+      position: absolute;
+      width: calc(var(--mark-size) * .15);
+      height: var(--mark-size);
+      
+    }
+    
+    .tttfeld.x::before,
+    .board.x .tttfeld:not(.x):not(.circle):before {
+      
+      animation: transform1 2s;
+      animation-iteration-count: infinite;
+    }
+    
+    .tttfeld.x::after,
+    .board.x .tttfeld:not(.x):not(.circle):after {
+      animation: transform2 2s;
+      animation-iteration-count: infinite;
+      
+    }
+    
+    .tttfeld.circle::before,
+    .tttfeld.circle::after,
+    .board.circle .tttfeld:not(.x):not(.circle):before,
+    .board.circle .tttfeld:not(.x):not(.circle):after {
+      content: '';
+      position: absolute;
+      border-radius: 50%;
+      animation:spin 3s;
+    animation-iteration-count: infinite;
+    }
+    
+    .tttfeld.circle::before,
+    .board.circle .tttfeld:not(.x):not(.circle):before {
+      width: var(--mark-size);
+      height: var(--mark-size);
+      animation:spin 3s;
+    animation-iteration-count:infinite;
+    }
+    
+    .tttfeld.circle::after,
+    .board.circle .tttfeld:not(.x):not(.circle):after {
+      width: calc(var(--mark-size) * .7);
+      height: calc(var(--mark-size) * .7);
+      background-color: rgb(135, 125, 224);
+      animation:kreis 3s;
+    animation-iteration-count:infinite;
+    }
+    
+    .winning-message {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.8);
+      justify-content: center;
+      align-items: center;
+      color: white;
+      font-size: 5rem;
+      flex-direction: column;
+    }
+    
+    .winning-message button {
+      font-size: 3rem;
+      background-color: white;
+      border: none;
+      padding: .25em .5em;
+      cursor: pointer;
+    }
+    
+    .winning-message button:hover {
+      background-color: tomato;
+      color: white;
+      font-size: 4rem;
+    }
+    
+    .winning-message.show {
+      display: flex;
+    }
+  
+    footer {
+      font-size: 20pt;
+      color: mintcream;
+    }
+  
+    h1 {
+      font-size: 30pt;
+      text-align: center;
+      margin-top: 5%;
+      color: mintcream;
+    }
+  
+  
+    
+    
+    
+  
+    @keyframes kreis {
+      from {
+        transform:scale(0.3);
+      }
+      to {
+        transform:scale(1);
+      }
+    }
+  
+    @keyframes transform1 {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(45deg);
+      }
+    }
+  
+    @keyframes transform2 {
+      from {
+        transform: rotate(0deg);
+      }
+      to {
+        transform: rotate(-45deg);
+      }
+    }
